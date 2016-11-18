@@ -12,6 +12,7 @@ import * as filters from './util/filters'{{#if_eq lintConfig "airbnb"}};{{/if_eq
 import * as plus from './util/plus'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueProgressBar from 'vue-progressbar'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Element from 'element-ui'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import 'normalize.css'
 import 'element-ui/lib/theme-default/index.css'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 if (process.env.NODE_ENV === 'production') {
@@ -25,11 +26,13 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Object.keys(plus).forEach(key => {
-  Vue.use(key, filters[key]()){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  Vue.use(plus[key]()){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
+  router,
   {{#if_eq build "runtime"}}
   render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{/if_eq}}
