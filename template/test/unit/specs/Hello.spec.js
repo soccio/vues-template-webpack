@@ -1,3 +1,4 @@
+import 'babel-polyfill'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Hello from 'src/components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
